@@ -4,6 +4,11 @@
 
     window.bitwiseCmdAnalyticsHandler = function() {return false};
 
+    if (!!navigator.doNotTrack) {
+        console.log('Analytics tracking disabled by browser settings.');
+        return;
+    }
+
     var key = 'TrackAnalytics';
     var disableAnalytics = localStorage.getItem(key) === 'false' ||  window.location.hash.indexOf('-notrack') > -1
 
